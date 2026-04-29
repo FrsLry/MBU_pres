@@ -1,0 +1,492 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={    Neural Dynamic N-mixture Model},
+  pdfauthor={Speaker: François Leroy (he/him) Supervised by: Marta Jarzyna    },
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{    Neural Dynamic N-mixture Model}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{A deep learning framework for inferring demographic rates from
+count data}
+\author{\textbf{Speaker:}François Leroy (he/him)\textbf{Supervised
+by:}Marta Jarzyna}
+\date{2025-09-29}
+
+\begin{document}
+\maketitle
+
+\section{Beyond abundance change}\label{beyond-abundance-change}
+
+Demographic rates
+
+.pull-left{[}
+
+\begin{itemize}
+\item
+  Changes in abundance are valuable, but demographic mechanisms offer
+  deeper ecological insights
+\item
+  Species' extinctions event are the result of increasing difference
+  between birth and loss
+\item
+  Demographic rates can be early warnings of species extinction
+\item
+  Monitoring survival and recruitment can help anticipate species'
+  extinction and understand better the current biodiversity crisis
+\end{itemize}
+
+{]}
+
+.pull-right{[}
+
+\includegraphics[width=21.58in]{images/slide1}
+
+{]}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Beyond abundance change}\label{beyond-abundance-change-1}
+
+Problem
+
+.pull-left{[}
+
+\begin{itemize}
+\item
+  Data for demographic rates models are individual based
+  (i.e.~\emph{individual encounter history data})
+\item
+  They are costly in resources and time
+\item
+  Individual identification is not equal for all taxa
+\item
+  Can be invasive/traumatic
+\item
+  Limited spatial and temporal extent
+\end{itemize}
+
+{]}
+
+.pull-right{[}
+
+\includegraphics[width=1\linewidth]{images/slide2}
+
+{]}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Beyond abundance change}\label{beyond-abundance-change-2}
+
+Using abundance to infer demographic rates
+
+.pull-left{[}
+
+\begin{itemize}
+\item
+  However, abundance data are available at large spatial and temporal
+  scale
+\item
+  The idea of inferring birth/immigration (\(\mu\)) and death/emigration
+  (\(\lambda\)) from experimental data is not new
+\item
+  While overall change in abundance gives information about
+  \(\lambda-\mu\), the volatility of the time-series provide information
+  about \(\lambda+\mu\) making \(\lambda\) and \(\mu\) identifiable
+\end{itemize}
+
+{]}
+
+.pull-right{[}
+
+{]}
+
+.footnote{[}Wilkinson, 2011{]}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Dynamic N-mixture model}\label{dynamic-n-mixture-model}
+
+Hierarchical Model
+
+\textbf{Observation process}
+
+.pull-left{[}
+
+\[y_{i,j,t} \sim Binomial(N_{i,t}, p)\]
+
+{]}
+
+.pull-right{[}
+
+\(y =\) observed abundance \(p =\) detection probability
+
+{]}
+
+--
+
+\textbf{State process}
+
+.pull-left{[}
+
+\[N_{i,1} \sim Poisson(\lambda)\]
+
+\[S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\
+R_{i,t+1} \sim Poisson(\gamma_{i,t})\\
+N_{i,t+1} = S_{i,t+1} + R_{i,t+1}\]
+
+{]}
+
+.pull-right{[}
+
+\(\lambda =\) abundance at \(t = 1\)
+
+\(\phi =\) survival probability \(\gamma =\) number of recruits {]}
+
+.footnote{[}Dail \& Madsen, 2011{]}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Neural hierarchical model}\label{neural-hierarchical-model}
+
+.pull-left{[}
+
+\textbf{Limitations of hierarchical framework}
+
+\begin{itemize}
+\item
+  Linear or simple polynomial effects of covariates, even though true
+  ecological responses are often unknown \emph{a priori}
+\item
+  MCMC algorithm scales poorly because inherently sequential, little
+  possibility of parallelization
+\item
+  Sensitive to priors and initial values
+\end{itemize}
+
+{]}
+
+.pull-right{[}
+
+\textbf{Limitations of Neural Networks}
+
+\begin{itemize}
+\item
+  Usually lack inferential power, making it less relevant for ecological
+  insights
+\item
+  Doesn't distinguish between ecological process and imperfect detection
+\end{itemize}
+
+{]}
+
+--
+
+.center{[}
+
+\includegraphics[width=0.7\linewidth]{images/joseph}
+
+{]}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Neural hierarchical model}\label{neural-hierarchical-model-1}
+
+.center{[}
+
+\includegraphics[width=0.9\linewidth]{images/joseph}
+
+{]}
+
+\begin{itemize}
+\item
+  Combines flexibility and scalability of neural networks with the
+  inferential power of hierarchical models
+\item
+  Output activation function according to the parameter to infer
+  (sigmoid for probability, exponential for counts)
+\item
+  Loss function: tailored from the model specific negative
+  log-likelihood
+\item
+  Combines decades of development in hierarchical modelling for
+  ecological data with the flexibility and predictive power of Neural
+  Networks
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Neural Dynamic N-mixture
+model}\label{neural-dynamic-n-mixture-model}
+
+.footnote{[}* Krishnan et al.~2017{]}
+
+Deep Markov Model*
+
+.pull-left-narrow{[}
+
+\textbf{State process}
+
+\[\begin{align*}
+& N_{i,1} \sim Poisson(\lambda)
+\end{align*}\]
+
+\[\begin{align*}
+& R_{i,t+1} \sim Poisson(\gamma_{i,t})\\
+& S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\
+& N_{i,t+1} = S_{i,t+1} + R_{i,t+1}
+\end{align*}\]
+
+\textbf{Observation process}
+
+\[\begin{align*}
+& y_{i,j,t} \sim Binomial(N_{i,t}, p)
+\end{align*}\]
+
+{]}
+
+.pull-right-wide{[}
+
+\includegraphics[width=29.24in]{images/NN_DNM}
+
+{]}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Neural Dynamic N-mixture
+model}\label{neural-dynamic-n-mixture-model-1}
+
+.footnote{[}* Krishnan et al.~2017{]}
+
+Deep Markov Model*
+
+.pull-left-narrow{[}
+
+\textbf{State process}
+
+\[\begin{align*}
+& N_{i,1} \sim Poisson(\lambda)
+\end{align*}\]
+
+\[\begin{align*}
+& R_{i,t+1} \sim Poisson(\gamma_{i,t})\\
+& S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\
+& N_{i,t+1} = S_{i,t+1} + R_{i,t+1}
+\end{align*}\]
+
+\textbf{Observation process}
+
+\[\begin{align*}
+& y_{i,j,t} \sim Binomial(N_{i,t}, p)
+\end{align*}\]
+
+{]}
+
+.pull-right-wide{[}
+
+\includegraphics[width=29.11in]{images/NN_DNM1}
+
+{]}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Example with the N-mixture
+model}\label{example-with-the-n-mixture-model}
+
+\textbf{Observation process}
+
+\[\begin{align*}
+& y_{i,j,t} \sim Binomial(N_{i,t}, p)
+\end{align*}\]
+
+\textbf{State process}
+
+\[\begin{align*}
+& N_{i} \sim Poisson(\lambda)
+\end{align*}\]
+
+--
+
+\textbf{Integrated likelihood:}
+
+\[\begin{aligned} &\hfill L\!\left(p,\lambda \mid y_{it} \right) = \prod_{i=1}^{R} \left( \sum_{N_i = 0}^{\infty} \left( \prod_{t=1}^{T} Bin \!\left(y_{it}; N_i, p\right) \right) Pois \!\left(N_i;\lambda\right) \right) \end{aligned}\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Example with the N-mixture
+model}\label{example-with-the-n-mixture-model-1}
+
+\textbf{Observation process}
+
+\[\begin{align*}
+& y_{i,j,t} \sim Binomial(N_{i,t}, p)
+\end{align*}\]
+
+\textbf{State process}
+
+\[\begin{align*}
+& N_{i} \sim Poisson(\lambda)
+\end{align*}\]
+
+\textbf{Integrated likelihood:}
+
+\[\begin{aligned} &\hfill L\!\left(p,\lambda \mid y_{it} \right) = \prod_{i=1}^{R} \left( \sum_{N_i = 0}^{K} \left( \prod_{t=1}^{T} Bin \!\left(y_{it}; N_i, p\right) \right) Pois \!\left(N_i;\lambda\right) \right) \end{aligned}\]
+
+\begin{itemize}
+\tightlist
+\item
+  Marginalize over \(K >> y_{it}\)
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Dynamic N-mixture model}\label{dynamic-n-mixture-model-1}
+
+\textbf{State process}
+
+\[\begin{align*}
+& N_{i,1} \sim Poisson(\lambda)\\
+& R_{i,t+1} \sim Poisson(\gamma_{i,t})\\
+& S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\
+& N_{i,t+1} = S_{i,t+1} + R_{i,t+1}
+\end{align*}\]
+
+\textbf{Observation process}
+
+\[\begin{align*}
+& y_{i,j,t} \sim Binomial(N_{i,t}, p)
+\end{align*}\]
+
+\textbf{Integrated likelihood}
+
+\[\mathcal{L}(p, \lambda, \gamma, \omega \mid y_{it}) =
+\prod_{i=1}^{R} \left[
+  \sum_{N_{i1} = 0}^{\infty} \cdots \sum_{N_{iT} = 0}^{\infty}
+  \left\{
+  \left(
+    \prod_{t=1}^{T} Bin(y_{it}; N_{it}, p)
+  \right)\\
+  \times Pois(N_{i1}; \lambda)
+  \cdot \prod_{t=2}^{T} P_{N_{it-1}, N_{it}}
+  \right\}
+\right]\]
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{The transition matrix}\label{the-transition-matrix}
+
+\begin{itemize}
+\item
+  As it it a Hidden Markov Model, the likelihood involves a transition
+  between time \(t\) and \(t+1\)
+\item
+  This is the bottleneck
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Optimization}\label{optimization}
+
+\begin{itemize}
+\item
+  Hidden Markov Model \(\Rightarrow\) Deep Markov Model (Krishnan et
+  al., 2017)
+\item
+  Trade-off between memory use and speed
+\item
+  I choose fast implementation with heavy memory use
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Simulated data}\label{simulated-data}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Results of the simulation}\label{results-of-the-simulation}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Fitting on real data}\label{fitting-on-real-data}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Next step}\label{next-step}
+
+\begin{itemize}
+\item
+  So far it is a simple MLP
+\item
+  Promising to use a CNN
+\end{itemize}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Limitations}\label{limitations}
+
+\end{document}
