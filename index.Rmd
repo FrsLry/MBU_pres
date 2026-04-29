@@ -25,8 +25,70 @@ knitr::opts_chunk$set(message = F,
                       echo = F)
 ```
 
+# Who am I?
 
-# Beyond abundance change
+* Postdoctoral researcher at The Ohio State University <img src="images/ohio_su_logo.jpg" style="height:2.5em; vertical-align:middle; margin-left:0.35em;" />
+
+.pull-left[
+  
+* Jarzyna Lab (Marta Jarzyna)
+
+* Member of the NSF-funded ABC (AI and Biodiversity Change) Global Center
+
+]
+
+.pull-right[
+
+<img src="images/JarzynaLab-Logo_Horizontal-Color.png" style="height:2em; vertical-align:middle; margin-left:0.35em;" />
+
+<img src="images/ABC.png" style="height:4em; vertical-align:middle; margin-left:0.35em;" />
+
+]
+
+* Currently developing a neural implementation of the dynamic N-mixture model
+
+**Background**
+
+* Master's in Marine Sciences (Sorbonne University)
+
+* PhD in Macroecology: *"Spatial scaling and decomposition of macroecological changes"*. Supervised by **Petr Keil** (MOBI Lab, ČZU; Dept. of Remote Sensing, Prague)
+
+* Also attended and validated courseworks at Matfyz (ÚFAL, Charles University)
+
+---
+
+# My PhD in few slides
+
+.center[
+
+**Influence of scales on temporal changes of biodiversity**
+
+```{r, out.width="50%"}
+knitr::include_graphics("images/litrev_BAE.png")
+```
+
+$\Rightarrow$ **There is no single answer: it depends on the spatial and temporal scale**
+
+]
+
+* Focused on incidence based metric of biodiversity (i.e. species richness, functional richness..., or diversity metrics considering relative abundance)
+
+* Importance of defining and reporting spatio-temporal scales when assessing biodiversity changes
+
+* Local increases and global decreases can be true at the same time: biodiversity changes are scale-dependent phenomenon
+
+---
+
+# My PhD in few slides
+
+* How can we explain this scale dependence of biodiversity changes? 
+
+* Empirical analysis: Ecography
+
+
+
+---
+
 
 <!-- <div class="center" style="margin:0;"> -->
 <!--   <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;"> -->
