@@ -10,8 +10,8 @@
    inkscape:version="1.4 (86a8ad7, 2024-10-11)"
    sodipodi:docname="cover.svg"
    inkscape:export-filename="cover.png"
-   inkscape:export-xdpi="300"
-   inkscape:export-ydpi="300"
+   inkscape:export-xdpi="317.0986"
+   inkscape:export-ydpi="317.0986"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -26,22 +26,22 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
-     inkscape:zoom="0.71891836"
-     inkscape:cx="504.9252"
-     inkscape:cy="132.83845"
+     inkscape:zoom="1.0167041"
+     inkscape:cx="477.03162"
+     inkscape:cy="232.61439"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g24" />
+     inkscape:current-layer="layer1" />
   <defs
      id="defs1">
     <rect
        x="488.83447"
        y="72.78421"
-       width="137.69984"
-       height="22.622118"
+       width="213.43476"
+       height="23.605688"
        id="rect47" />
     <rect
        x="487.85089"
@@ -1023,21 +1023,8 @@
       <g
          fill="#000000"
          fill-opacity="1"
-         id="g12"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
-        <g
-           id="use11"
-           transform="translate(1.993,20.583)">
-          <path
-             d="m 16.328125,-5.703125 c 0.421875,0 0.875,0 0.875,-0.484375 0,-0.5 -0.453125,-0.5 -0.875,-0.5 H 2.921875 c -0.421875,0 -0.859375,0 -0.859375,0.5 0,0.484375 0.4375,0.484375 0.859375,0.484375 z m 0,0"
-             id="path23" />
-        </g>
-      </g>
-      <g
-         fill="#000000"
-         fill-opacity="1"
          id="g13"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)">
         <g
            id="use12"
            transform="translate(21.272406,20.583)">
@@ -1050,7 +1037,7 @@
          fill="#000000"
          fill-opacity="1"
          id="g14-1"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)">
         <g
            id="use13"
            transform="translate(37.785572,20.583)">
@@ -1063,7 +1050,7 @@
          fill="#000000"
          fill-opacity="1"
          id="g15"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)">
         <g
            id="use14"
            transform="translate(46.562683,20.583)">
@@ -1083,7 +1070,7 @@
          fill="#000000"
          fill-opacity="1"
          id="g17-1"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)">
         <g
            id="use16"
            transform="translate(69.624603,20.583)">
@@ -1103,7 +1090,7 @@
          fill="#000000"
          fill-opacity="1"
          id="g18-1"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)">
         <g
            id="use18"
            transform="translate(94.639748,20.583)">
@@ -1116,7 +1103,7 @@
          fill="#000000"
          fill-opacity="1"
          id="g19-1"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)">
         <g
            id="use19"
            transform="translate(108.5924,20.583)">
@@ -1129,7 +1116,7 @@
          fill="#000000"
          fill-opacity="1"
          id="g20-1"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)">
         <g
            id="use20"
            transform="translate(119.44915,20.583)">
@@ -1142,7 +1129,7 @@
          fill="#000000"
          fill-opacity="1"
          id="g21-1"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)">
         <g
            id="use21"
            transform="translate(133.81328,20.583)">
@@ -1155,7 +1142,7 @@
          fill="#000000"
          fill-opacity="1"
          id="g22"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)"
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)"
          style="fill:#d82020;fill-opacity:1">
         <g
            id="use22"
@@ -1171,7 +1158,7 @@
          fill="#000000"
          fill-opacity="1"
          id="g23"
-         transform="matrix(0.352778,0,0,0.352778,-1.43069,-0.707275)">
+         transform="matrix(0.352778,0,0,0.352778,-5.1348562,-0.17810833)">
         <g
            id="use23"
            transform="translate(153.42484,20.583)">
@@ -1276,11 +1263,11 @@
     </g>
     <path
        style="fill:none;fill-opacity:0.980392;stroke:#d82020;stroke-width:0.565;stroke-dasharray:2.26, 0.565;stroke-dashoffset:0;stroke-opacity:1;marker-end:url(#marker45)"
-       d="m 172.35944,164.87806 c 5.79354,-1.66264 19.25261,-15.57034 19.25261,-15.57034"
+       d="m 168.65528,165.40723 c 5.79354,-1.66264 19.25261,-15.57034 19.25261,-15.57034"
        id="path44" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,28.296533,88.228628)"
+       transform="matrix(0.26458333,0,0,0.26458333,24.592367,88.757795)"
        id="text45"
        style="font-weight:bold;font-size:18.6667px;line-height:1.1;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect45);display:inline;fill:#d82020;fill-opacity:1;stroke:none;stroke-width:2.13543;stroke-dasharray:8.54173, 2.13543;stroke-dashoffset:0;stroke-opacity:1"><tspan
          x="488.73005"
@@ -1295,12 +1282,12 @@
        y="131.60422" />
     <text
        xml:space="preserve"
-       transform="matrix(0.26458333,0,0,0.26458333,21.895209,103.75895)"
+       transform="matrix(0.26458333,0,0,0.26458333,12.899373,103.75895)"
        id="text46"
        style="font-weight:bold;font-size:18.6667px;line-height:1.1;font-family:Arial;-inkscape-font-specification:'Arial Bold';text-align:center;writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect47);display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.13543;stroke-dasharray:8.54173, 2.13543;stroke-dashoffset:0;stroke-opacity:1"><tspan
-         x="497.00868"
+         x="493.39077"
          y="88.199267"
-         id="tspan4">Training Loss</tspan></text>
+         id="tspan4">Negative log-likelihood</tspan></text>
     <path
        style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.265;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        d="m 120.78501,104.53966 19.77796,26.93446"

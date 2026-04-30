@@ -1,5 +1,5 @@
 ---
-title: "&emsp;&emsp;Macroecological change in the Anthropocene"
+title: "&emsp;&emsp;Macroecological changes in the Anthropocene"
 subtitle: "Using advances in statistical models to understand macroecological change and its underlying processes"
 author: "<br>**Speaker:**<br>François Leroy (he/him)"
 date: "2025-07-05"
@@ -47,9 +47,11 @@ knitr::opts_chunk$set(message = F,
 
 * Currently developing a neural implementation of the dynamic N-mixture model
 
+--
+
 **Background**
 
-* Master's in Marine Sciences (Sorbonne University)
+* Master's in Marine Sciences (Sorbonne University, Paris)
 
 * PhD in Macroecology: *"Spatial scaling and decomposition of macroecological changes"*. Supervised by **Petr Keil** (MOBI Lab, ČZU; Dept. of Remote Sensing, Prague)
 
@@ -57,17 +59,15 @@ knitr::opts_chunk$set(message = F,
 
 ---
 
-# My PhD in few slides
+# Scale-dependence of biodiversity changes
 
 .center[
 
-**Influence of scales on temporal changes of biodiversity**
-
-```{r, out.width="50%"}
+```{r, out.width="60%"}
 knitr::include_graphics("images/litrev_BAE.png")
 ```
 
-$\Rightarrow$ **There is no single answer: it depends on the spatial and temporal scale**
+$\Rightarrow$ **There is no single answer: it depends on spatial and temporal scales**
 
 ]
 
@@ -79,16 +79,204 @@ $\Rightarrow$ **There is no single answer: it depends on the spatial and tempora
 
 ---
 
-# My PhD in few slides
+# <span style="font-size: 0.9em;">Extinction and colonization drive scale-dependence</span>
 
-* How can we explain this scale dependence of biodiversity changes? 
+.center[
 
-* Empirical analysis: Ecography
+**How do extinction and colonization explain species richness scale-dependence?**
 
+```{r, out.width="70%"}
+knitr::include_graphics("images/ecography.png")
+```
+
+]  
+
+<br>
+
+* Empirical analysis of the influence of scales on species richness change ($\Delta S$)
+
+$$\Delta S = C-E$$
+
+* Extinction ($E$) and colonization ($C$) scale differently
+
+* Thus scaling of $\Delta S$ emerges from $C-E$
 
 
 ---
 
+# <span style="font-size: 0.9em;">Extinction and colonization drive scale-dependence</span>
+
+.center[
+
+**Linking theoretical scenarios...**
+
+```{r, out.width="90%"}
+knitr::include_graphics("images/ecography_theory.png")
+```
+
+]
+
+---
+
+
+# <span style="font-size: 0.9em;">Extinction and colonization drive scale-dependence</span>
+
+.center[
+
+**... to empirical analyses**
+
+]
+
+.pull-left[
+
+<br>
+
+* Positive scaling of $\Delta S$
+
+<br>
+
+* Increasing colonization = external pool scenario
+
+<br>
+
+* Hump-shape extinction = extinction of rare species at small scales, and decline of common species at large scales
+
+]
+
+.pull-right[
+
+```{r, out.width="80%"}
+knitr::include_graphics("images/eco_empi.png")
+```
+
+]
+
+---
+
+# What controls the scaling of extinction?
+
+.pull-left[
+
+<br><br>
+
+Extinction can be measured as:
+
+* Number of extinct species
+* Probability of extinction per species
+
+]
+
+.pull-right[
+
+```{r, out.width="75%"}
+knitr::include_graphics("images/ecography_proba.png")
+```
+
+]
+
+---
+
+# What controls the scaling of extinction?
+
+.center[
+
+```{r, out.width="80%"}
+knitr::include_graphics("images/eco_evo.png")
+```
+
+]
+
+* Going deeper into the underlying mechanisms of extinction scaling
+
+* Simulation analyses with different processes driving the scaling of extinction: density dependent mortality and drivers of Species-Area Relationship (SAR)
+
+* 3 hypothesis
+
+---
+
+# What controls the scaling of extinction?
+
+```{r}
+knitr::include_graphics("images/hypo1.png")
+```
+
+---
+
+# What controls the scaling of extinction?
+
+```{r}
+knitr::include_graphics("images/hypo2.png")
+```
+
+<!---
+
+# What controls the scaling of extinction?
+
+<br><br>
+
+```{r}
+knitr::include_graphics("images/hypo3.png")
+```
+-->
+---
+
+# What controls the scaling of extinction?
+
+* Density dependence drives extinction scaling
+
+* But effects depend on community structure (SAD)
+
+* Hypotheses hold in uneven communities
+
+.center[
+
+```{r, out.width="60%"}
+knitr::include_graphics("images/eco_evo_resutls.png")
+```
+
+```{r, out.width="60%"}
+knitr::include_graphics("images/eco_evo_SAD.png")
+```
+
+]
+
+---
+
+# What controls the scaling of extinction?
+
+.pull-left[
+
+### Depends on:
+
+- Density dependence
+- Species abundance distribution (SAD)  
+- Species–area relationship (SAR)
+
+]
+
+.pull-right[
+
+### Key insight
+
+<br>
+
+$\Rightarrow$ No universal scaling of extinction
+
+<br>
+
+$\Rightarrow$ Scaling emerges from population processes
+
+]
+
+.center[
+
+<br><br>
+
+### Extinction is not geometric: it is mechanistic
+
+]
+
+---
 
 <!-- <div class="center" style="margin:0;"> -->
 <!--   <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;"> -->
