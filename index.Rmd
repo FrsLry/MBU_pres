@@ -572,6 +572,59 @@ N_{i,t+1} = S_{i,t+1} + R_{i,t+1}$$
 
 <br>
 
+<!-- $$N_{i,1} \sim Poisson(\lambda)$$ -->
+
+]
+
+.pull-right[
+
+$\phi =$ survival probability<br>
+$\gamma =$ number of recruits
+
+<br><br>
+
+<!-- $\lambda =$ abundance at $t = 1$ -->
+
+]
+
+.footnote[Dail & Madsen, 2011]
+
+---
+
+# Dynamic N-mixture model
+
+<div class="center" style="margin:0;">
+  <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;">
+    Hidden Markov Model
+  </h2>
+</div>
+
+**Observation process**
+
+.pull-left[
+
+$$y_{i,j,t} \sim Binomial(N_{i,t}, p)$$
+
+]
+
+.pull-right[
+
+$y =$ observed abundance<br>
+$N_{it} =$ latent "true" abundance<br>
+$p =$ detection probability
+
+]
+
+**State process**
+
+.pull-left[
+
+$$S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\
+R_{i,t+1} \sim Poisson(\gamma_{i,t})\\
+N_{i,t+1} = S_{i,t+1} + R_{i,t+1}$$
+
+<br>
+
 $$N_{i,1} \sim Poisson(\lambda)$$
 
 ]
@@ -581,7 +634,7 @@ $$N_{i,1} \sim Poisson(\lambda)$$
 $\phi =$ survival probability<br>
 $\gamma =$ number of recruits
 
-<br>
+<br><br>
 
 $\lambda =$ abundance at $t = 1$
 
@@ -591,461 +644,465 @@ $\lambda =$ abundance at $t = 1$
 
 ---
 
-<!-- # Limitations of Existing Frameworks -->
+# Limitations of Existing Frameworks
 
-<!-- .pull-left[ -->
+.pull-left[
 
-<!-- **Limitations of hierarchical framework** -->
+**Limitations of hierarchical framework**
 
-<!-- * Linear or simple polynomial effects of covariates, even though true ecological responses are often unknown *a priori* -->
+* Linear or simple polynomial effects of covariates, even though true ecological responses are often unknown *a priori*
 
-<!-- * MCMC algorithm scales poorly because inherently sequential, little possibility of parallelization -->
+* MCMC algorithm scales poorly because inherently sequential, little possibility of parallelization
 
-<!-- * Sensitive to priors and initial values -->
+* Sensitive to priors and initial values
 
-<!-- ] -->
+]
 
-<!-- .pull-right[ -->
+.pull-right[
 
-<!-- **Limitations of Neural Networks** -->
+**Limitations of Neural Networks**
 
-<!-- * Usually lack inferential power, making it less relevant for ecological insights -->
+* Usually lack inferential power, making it less relevant for ecological insights
 
-<!-- * Doesn't distinguish between ecological process and imperfect detection -->
+* Doesn't distinguish between ecological process and imperfect detection
 
-<!-- ] -->
+]
 
-<!-- -- -->
+--
 
-<!-- .center[ -->
+.center[
 
-<!-- ```{r, out.width="70%"} -->
-<!-- knitr::include_graphics("images/joseph.png") -->
-<!-- ``` -->
+```{r, out.width="70%"}
+knitr::include_graphics("images/joseph.png")
+```
 
-<!-- ] -->
+]
 
-<!-- --- -->
+---
 
-<!-- # Neural hierarchical model -->
+# Neural hierarchical model
 
-<!-- .center[ -->
+.center[
 
-<!-- ```{r, out.width="90%"} -->
-<!-- knitr::include_graphics("images/joseph.png") -->
-<!-- ``` -->
+```{r, out.width="90%"}
+knitr::include_graphics("images/joseph.png")
+```
 
-<!-- ] -->
+]
 
-<!-- <br> -->
+<br>
 
-<!-- * Combines flexibility and scalability of neural networks with the inferential power of hierarchical models -->
+* Combines flexibility and scalability of neural networks with the inferential power of hierarchical models
 
-<!-- * Combines decades of development in hierarchical modelling for ecological data with the flexibility and predictive power of Neural Networks -->
+* Combines decades of development in hierarchical modelling for ecological data with the flexibility and predictive power of Neural Networks
 
-<!-- * Loss function: tailored from the model's specific Likelihood (i.e. negative log-likelihood) -->
+* Loss function: tailored from the model's specific Likelihood (i.e. negative log-likelihood)
 
-<!-- * Output activation function according to the parameter to infer -->
+* Output activation function according to the parameter to infer
 
-<!-- --- -->
+---
 
-<!-- # Neural Dynamic N-mixture model -->
+# Neural Dynamic N-mixture model
 
-<!-- <!-- .footnote[\* Krishnan et al. 2017] --> -->
+<div class="center" style="margin:0;">
+  <h2 style="font-size: 1.5em; margin:0 0 0em; line-height:1.05; display:inline-block;">
+    Neural implementation of the dynamic N-mixture model (simplified)
+  </h2>
+</div>
 
-<!-- <div class="center" style="margin:0;"> -->
-<!--   <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;"> -->
-<!--     Hidden Markov Model -->
-<!--   </h2> -->
-<!-- </div> -->
 
-<!-- .pull-left-narrow[ -->
+<div style="margin-right:-3.5em">
 
-<!-- <br> -->
+<br>
 
-<!-- **State process** -->
+.center[
 
-<!-- $$\begin{align*} -->
-<!-- & N_{i,1} \sim Poisson(\lambda) -->
-<!-- \end{align*}$$ -->
+```{r, out.width= "90%"}
+knitr::include_graphics(
+  "images/Fig2_neural.jpg"
+)
+```
 
-<!-- <br> -->
+]
 
-<!-- $$\begin{align*} -->
-<!-- & R_{i,t+1} \sim Poisson(\gamma_{i,t})\\ -->
-<!-- & S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\ -->
-<!-- & N_{i,t+1} = S_{i,t+1} + R_{i,t+1} -->
-<!-- \end{align*}$$ -->
+---
 
+# Example with the N-mixture model
 
+**Observation process**
 
-<!-- **Observation process** -->
+$$\begin{align*}
+& y_{i,j,t} \sim Binomial(N_{i,t}, p)
+\end{align*}$$
 
-<!-- $$\begin{align*} -->
-<!-- & y_{i,j,t} \sim Binomial(N_{i,t}, p) -->
-<!-- \end{align*}$$ -->
+**State process**
 
+$$\begin{align*}
+& N_{i} \sim Poisson(\lambda)
+\end{align*}$$
 
-<!-- ] -->
+--
 
+<br>
 
-<!-- .pull-right-wide[ -->
+**Integrated likelihood:**
 
-<!-- <div style="margin-right:-3.5em"> -->
+<br>
 
-<!-- <br> -->
+$$\begin{align*} &\hfill L\!\left(p,\lambda \mid y_{it} \right) = \prod_{i=1}^{R} \left( \sum_{N_i = 0}^{\infty} \left( \prod_{t=1}^{T} Bin \!\left(y_{it}; N_i, p\right) \right) Pois \!\left(N_i;\lambda\right) \right) \end{align*}$$
 
-<!-- ```{r} -->
-<!-- knitr::include_graphics( -->
-<!--   "images/NN_DNM.png" -->
-<!-- ) -->
-<!-- ``` -->
+---
 
-<!-- ] -->
+# Example with the N-mixture model
 
-<!-- --- -->
+**Observation process**
 
-<!-- # Neural Dynamic N-mixture model -->
+$$\begin{align*}
+& y_{i,j,t} \sim Binomial(N_{i,t}, p)
+\end{align*}$$
 
-<!-- <div class="center" style="margin:0;"> -->
-<!--   <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;"> -->
-<!--     Hidden Markov Model -->
-<!--   </h2> -->
-<!-- </div> -->
+**State process**
 
-<!-- .pull-left-narrow[ -->
+$$\begin{align*}
+& N_{i} \sim Poisson(\lambda)
+\end{align*}$$
 
-<!-- <br> -->
+<br>
 
-<!-- **State process** -->
+**Integrated likelihood:**
 
-<!-- $$\begin{align*} -->
-<!-- & N_{i,1} \sim Poisson(\lambda) -->
-<!-- \end{align*}$$ -->
+<br>
 
-<!-- <br> -->
+$$\begin{align*} &\hfill L\!\left(p,\lambda \mid y_{it} \right) = \prod_{i=1}^{R} \left( \sum_{N_i = 0}^{K} \left( \prod_{t=1}^{T} Bin \!\left(y_{it}; N_i, p\right) \right) Pois \!\left(N_i;\lambda\right) \right) \end{align*}$$
 
-<!-- $$\begin{align*} -->
-<!-- & R_{i,t+1} \sim Poisson(\gamma_{i,t})\\ -->
-<!-- & S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\ -->
-<!-- & N_{i,t+1} = S_{i,t+1} + R_{i,t+1} -->
-<!-- \end{align*}$$ -->
+<br>
 
+* Marginalize over $K >> y_{it}$
 
+---
 
-<!-- **Observation process** -->
+# Dynamic N-mixture model
 
-<!-- $$\begin{align*} -->
-<!-- & y_{i,j,t} \sim Binomial(N_{i,t}, p) -->
-<!-- \end{align*}$$ -->
+**State process**
 
+$$\begin{align*}
+& N_{i,1} \sim Poisson(\lambda)\\
+& R_{i,t+1} \sim Poisson(\gamma_{i,t})\\
+& S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\
+& N_{i,t+1} = S_{i,t+1} + R_{i,t+1}
+\end{align*}$$
 
-<!-- ] -->
+**Observation process**
 
+$$\begin{align*}
+& y_{i,j,t} \sim Binomial(N_{i,t}, p)
+\end{align*}$$
 
-<!-- .pull-right-wide[ -->
+--
 
-<!-- <div style="margin-right:-3.5em"> -->
+**Integrated likelihood**
 
-<!-- <br> -->
+$$\mathcal{L}(p, \lambda, \gamma, \phi \mid y_{it}) =
+\prod_{i=1}^{R} \left[
+  \sum_{N_{i1} = 0}^{\infty} \cdots \sum_{N_{iT} = 0}^{\infty}
+  \left\{
+  \left(
+    \prod_{t=1}^{T} Bin(y_{it}; N_{it}, p)
+  \right)\\
+  \times Pois(N_{i1}; \lambda)
+  \cdot \prod_{t=2}^{T} P_{N_{it}, N_{it+1}}
+  \right\}
+\right]$$
 
-<!-- ```{r} -->
-<!-- knitr::include_graphics("images/NN_DNM1.png") -->
-<!-- ``` -->
+---
 
-<!-- ] -->
+# Dynamic N-mixture model
 
-<!-- --- -->
+**State process**
 
-<!-- # Example with the N-mixture model -->
+$$\begin{align*}
+& N_{i,1} \sim Poisson(\lambda)\\
+& R_{i,t+1} \sim Poisson(\gamma_{i,t})\\
+& S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\
+& N_{i,t+1} = S_{i,t+1} + R_{i,t+1}
+\end{align*}$$
 
-<!-- **Observation process** -->
+**Observation process**
 
-<!-- $$\begin{align*} -->
-<!-- & y_{i,j,t} \sim Binomial(N_{i,t}, p) -->
-<!-- \end{align*}$$ -->
+$$\begin{align*}
+& y_{i,j,t} \sim Binomial(N_{i,t}, p)
+\end{align*}$$
 
-<!-- **State process** -->
+**Integrated likelihood**
 
-<!-- $$\begin{align*} -->
-<!-- & N_{i} \sim Poisson(\lambda) -->
-<!-- \end{align*}$$ -->
+$$\mathcal{L}(p, \lambda, \gamma, \phi \mid y_{it}) =
+\prod_{i=1}^{R} \left[
+  \sum_{N_{i1} = 0}^{K} \cdots \sum_{N_{iT} = 0}^{K}
+  \left\{
+  \left(
+    \prod_{t=1}^{T} Bin(y_{it}; N_{it}, p)
+  \right)\\
+  \times Pois(N_{i1}; \lambda)
+  \cdot \prod_{t=2}^{T} P_{N_{it}, N_{it+1}}
+  \right\}
+\right]$$
 
-<!-- -- -->
+---
 
-<!-- <br> -->
+# Transition matrix
 
-<!-- **Integrated likelihood:** -->
+* Key part of Hidden Markov Models
 
-<!-- <br> -->
+* Involves the transition between abundance at time $t$ and $t+1$ and the demographic parameters
 
-<!-- $$\begin{align*} &\hfill L\!\left(p,\lambda \mid y_{it} \right) = \prod_{i=1}^{R} \left( \sum_{N_i = 0}^{\infty} \left( \prod_{t=1}^{T} Bin \!\left(y_{it}; N_i, p\right) \right) Pois \!\left(N_i;\lambda\right) \right) \end{align*}$$ -->
+* Each element of the transition matrix $P$ represents the transition probability from state $N_{it} = j$ to state $N_{it+1} = k$ with the discrete convolution:
 
-<!-- --- -->
+$$P_{jk} = \sum_{c=0}^{\min(j, k)} Bin(c; j, \phi) \cdot Pois(k - c; \gamma)$$
 
-<!-- # Example with the N-mixture model -->
+--
 
-<!-- **Observation process** -->
 
-<!-- $$\begin{align*} -->
-<!-- & y_{i,j,t} \sim Binomial(N_{i,t}, p) -->
-<!-- \end{align*}$$ -->
+$$\begin{array}{c@{\qquad}c}
+N_{i,t} &
+\begin{array}{c}
+\scriptstyle N_{i,t+1} \\[-0.3ex]
+\begin{bmatrix}
+P_{K0} & P_{K1} & P_{K2} & \cdots & P_{KK} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+P_{20} & P_{21} & P_{22} & \cdots & P_{2K} \\
+P_{10} & P_{11} & P_{12} & \cdots & P_{1K} \\
+P_{00} & P_{01} & P_{02} & \cdots & P_{0K}
+\end{bmatrix}
+\end{array}
+\end{array}$$
 
-<!-- **State process** -->
+---
 
-<!-- $$\begin{align*} -->
-<!-- & N_{i} \sim Poisson(\lambda) -->
-<!-- \end{align*}$$ -->
+# Transition matrix
 
-<!-- <br> -->
+.center[
 
-<!-- **Integrated likelihood:** -->
+```{r, out.width="80%"}
+knitr::include_graphics("images/transmat_extreme.png")
+```
 
-<!-- <br> -->
+]
 
-<!-- $$\begin{align*} &\hfill L\!\left(p,\lambda \mid y_{it} \right) = \prod_{i=1}^{R} \left( \sum_{N_i = 0}^{K} \left( \prod_{t=1}^{T} Bin \!\left(y_{it}; N_i, p\right) \right) Pois \!\left(N_i;\lambda\right) \right) \end{align*}$$ -->
+---
 
-<!-- <br> -->
+# Transition matrix
 
-<!-- * Marginalize over $K >> y_{it}$ -->
+<br><br>
 
-<!-- --- -->
+.center[
 
-<!-- # Dynamic N-mixture model -->
+```{r}
+knitr::include_graphics("images/transmat_middle.png")
+```
 
-<!-- **State process** -->
 
-<!-- $$\begin{align*} -->
-<!-- & N_{i,1} \sim Poisson(\lambda)\\ -->
-<!-- & R_{i,t+1} \sim Poisson(\gamma_{i,t})\\ -->
-<!-- & S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\ -->
-<!-- & N_{i,t+1} = S_{i,t+1} + R_{i,t+1} -->
-<!-- \end{align*}$$ -->
+]
 
-<!-- **Observation process** -->
 
-<!-- $$\begin{align*} -->
-<!-- & y_{i,j,t} \sim Binomial(N_{i,t}, p) -->
-<!-- \end{align*}$$ -->
+---
 
-<!-- -- -->
+# Transition matrix - Optimization
 
-<!-- **Integrated likelihood** -->
+* One transition matrix **per time step and per time-series** $\Rightarrow$ Bottleneck
 
-<!-- $$\mathcal{L}(p, \lambda, \gamma, \phi \mid y_{it}) = -->
-<!-- \prod_{i=1}^{R} \left[ -->
-<!--   \sum_{N_{i1} = 0}^{\infty} \cdots \sum_{N_{iT} = 0}^{\infty} -->
-<!--   \left\{ -->
-<!--   \left( -->
-<!--     \prod_{t=1}^{T} Bin(y_{it}; N_{it}, p) -->
-<!--   \right)\\ -->
-<!--   \times Pois(N_{i1}; \lambda) -->
-<!--   \cdot \prod_{t=2}^{T} P_{N_{it}, N_{it+1}} -->
-<!--   \right\} -->
-<!-- \right]$$ -->
+$$P_{jk} = \sum_{c=0}^{\min(j, k)} Bin(c; j, \phi) \cdot Pois(k - c; \gamma)$$
+$$\begin{array}{c@{\qquad}c}
+N_{i,t} &
+\begin{array}{c}
+\scriptstyle N_{i,t+1} \\[-0.3ex]
+\begin{bmatrix}
+P_{K0} & P_{K1} & P_{K2} & \cdots & P_{KK} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+P_{20} & P_{21} & P_{22} & \cdots & P_{2K} \\
+P_{10} & P_{11} & P_{12} & \cdots & P_{1K} \\
+P_{00} & P_{01} & P_{02} & \cdots & P_{0K}
+\end{bmatrix}
+\end{array}
+\end{array}$$
 
-<!-- --- -->
+* **Fast, heavy memory implementation:** vectorisation of $P$ over every time steps and batch size
 
-<!-- # Dynamic N-mixture model -->
+* **Time gain:** e.g. from 88 minutes in Bayesian framework (JAGS) to ca. 15 minutes with this implementation (8GB VRAM, 300 epochs)
 
-<!-- **State process** -->
+---
 
-<!-- $$\begin{align*} -->
-<!-- & N_{i,1} \sim Poisson(\lambda)\\ -->
-<!-- & R_{i,t+1} \sim Poisson(\gamma_{i,t})\\ -->
-<!-- & S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\ -->
-<!-- & N_{i,t+1} = S_{i,t+1} + R_{i,t+1} -->
-<!-- \end{align*}$$ -->
+# Benchmarking our neural implementation
 
-<!-- **Observation process** -->
+* Simulate data under the dynamic N-mixture model
 
-<!-- $$\begin{align*} -->
-<!-- & y_{i,j,t} \sim Binomial(N_{i,t}, p) -->
-<!-- \end{align*}$$ -->
+* Use one covariate x with quadratic relationships for $\lambda$, $\phi$, $\gamma$, and $p$
 
-<!-- **Integrated likelihood** -->
+* Simulate: latent states $N$, $S$, $R$, and repeated counts
 
-<!-- $$\mathcal{L}(p, \lambda, \gamma, \phi \mid y_{it}) = -->
-<!-- \prod_{i=1}^{R} \left[ -->
-<!--   \sum_{N_{i1} = 0}^{K} \cdots \sum_{N_{iT} = 0}^{K} -->
-<!--   \left\{ -->
-<!--   \left( -->
-<!--     \prod_{t=1}^{T} Bin(y_{it}; N_{it}, p) -->
-<!--   \right)\\ -->
-<!--   \times Pois(N_{i1}; \lambda) -->
-<!--   \cdot \prod_{t=2}^{T} P_{N_{it}, N_{it+1}} -->
-<!--   \right\} -->
-<!-- \right]$$ -->
+.center[
 
-<!-- --- -->
+```{r, out.width="70%"}
+knitr::include_graphics("images/epochs.jpg")
+```
 
-<!-- # Transition matrix -->
+]
 
-<!-- * Key part of Hidden Markov Models -->
 
-<!-- * Involves the transition between abundance at time $t$ and $t+1$ and the demographic parameters -->
+---
 
-<!-- * Each element of the transition matrix $P$ represents the transition probability from state $N_{it} = j$ to state $N_{it+1} = k$ with the discrete convolution: -->
+# Benchmarking our neural implementation
 
-<!-- $$P_{jk} = \sum_{c=0}^{\min(j, k)} Bin(c; j, \phi) \cdot Pois(k - c; \gamma)$$ -->
+* Fit the same simulated data with:
 
-<!-- -- -->
+  - Neural Network framework
+  - Bayesian framework
 
+.center[
 
-<!-- $$\begin{array}{c@{\qquad}c} -->
-<!-- N_{i,t} & -->
-<!-- \begin{array}{c} -->
-<!-- \scriptstyle N_{i,t+1} \\[-0.3ex] -->
-<!-- \begin{bmatrix} -->
-<!-- P_{K0} & P_{K1} & P_{K2} & \cdots & P_{KK} \\ -->
-<!-- \vdots & \vdots & \vdots & \ddots & \vdots \\ -->
-<!-- P_{20} & P_{21} & P_{22} & \cdots & P_{2K} \\ -->
-<!-- P_{10} & P_{11} & P_{12} & \cdots & P_{1K} \\ -->
-<!-- P_{00} & P_{01} & P_{02} & \cdots & P_{0K} -->
-<!-- \end{bmatrix} -->
-<!-- \end{array} -->
-<!-- \end{array}$$ -->
+```{r, out.width="80%"}
+knitr::include_graphics("images/Fig3_neural_param.JPG")
+```
 
-<!-- --- -->
+]
 
-<!-- # Transition matrix -->
+---
 
-<!-- .center[ -->
+# Benchmarking our neural implementation
 
-<!-- ```{r, out.width="80%"} -->
-<!-- knitr::include_graphics("images/transmat_extreme.png") -->
-<!-- ``` -->
+.pull-left[
 
-<!-- ] -->
+<br><br>
 
-<!-- --- -->
+* Estimates of N, S, R
 
-<!-- # Transition matrix -->
+* Better performance of Neural Network
 
-<!-- <br><br> -->
+* Surprising because it represents the best case scenario for the Bayesian implementation
 
-<!-- .center[ -->
 
-<!-- ```{r} -->
-<!-- knitr::include_graphics("images/transmat_middle.png") -->
-<!-- ``` -->
+]
 
+.pull-right[
 
-<!-- ] -->
+<div style="margin-right:-3.5em">
 
+```{r}
+knitr::include_graphics("images/Fig3_neural_NSR.JPG")
+```
 
-<!-- --- -->
 
-<!-- # Transition matrix - Optimization -->
+]
 
-<!-- * One transition matrix **per time step and per time-series** $\Rightarrow$ Bottleneck -->
+---
 
-<!-- $$P_{jk} = \sum_{c=0}^{\min(j, k)} Bin(c; j, \phi) \cdot Pois(k - c; \gamma)$$ -->
-<!-- $$\begin{array}{c@{\qquad}c} -->
-<!-- N_{i,t} & -->
-<!-- \begin{array}{c} -->
-<!-- \scriptstyle N_{i,t+1} \\[-0.3ex] -->
-<!-- \begin{bmatrix} -->
-<!-- P_{K0} & P_{K1} & P_{K2} & \cdots & P_{KK} \\ -->
-<!-- \vdots & \vdots & \vdots & \ddots & \vdots \\ -->
-<!-- P_{20} & P_{21} & P_{22} & \cdots & P_{2K} \\ -->
-<!-- P_{10} & P_{11} & P_{12} & \cdots & P_{1K} \\ -->
-<!-- P_{00} & P_{01} & P_{02} & \cdots & P_{0K} -->
-<!-- \end{bmatrix} -->
-<!-- \end{array} -->
-<!-- \end{array}$$ -->
+# Case study
 
-<!-- * **Fast, heavy memory implementation:** vectorisation of $P$ over every time steps and batch size -->
+* The Swiss Green Woodpecker 
 
-<!-- * **Time gain:** e.g. from 88 minutes in Bayesian framework (JAGS) to ca. 15 minutes with this implementation (8GB VRAM, 300 epochs) -->
+* Conditional effect plots 
 
-<!-- --- -->
+.center[
 
-<!-- # Data simulation -->
 
-<!-- * Simulating quadratic relationship between a covariate $x$ and the parameters $p$, $\lambda$, $\gamma$, and $\phi$ -->
+```{r, out.width="80%"}
+knitr::include_graphics("images/Fig4_params.PNG")
+```
 
-<!-- * 300 sites, 15 years long time series, 5 repeated counts -->
+]
 
-<!-- .center[ -->
 
-<!-- ```{r, out.width="70%"} -->
-<!-- knitr::include_graphics("images/simulated_data.png") -->
-<!-- ``` -->
+---
 
-<!-- ] -->
+<h1 style="font-size: 2.5em;">
+  Neural dynamic N-mixture model: main takeaways
+</h1>
 
+.pull-left[
 
-<!-- --- -->
+### Main result
 
-<!-- # Results of the simulation -->
+- Flexible alternative to Bayesian dynamic N-mixture models
 
-<!-- * Simple MLP: 1 hidden layer, 64 hidden units, 300 epochs -->
+- Recovers:
+  - ecological parameters
+  - latent states $N$, $S$, $R$
 
-<!-- <!-- * Run time: XXX minutes (CUDA, 8GB VRAM, batch size = 8) --> -->
+- Comparable or better recovery than JAGS in simulations
 
-<!-- .center[ -->
+]
 
-<!-- ```{r, out.width="90%"} -->
-<!-- knitr::include_graphics("images/output1.png") -->
-<!-- ``` -->
+.pull-right[
 
-<!-- ] -->
+### Computational gain
 
-<!-- --- -->
+- Uses gradient-based optimization
 
-<!-- # Next step -->
+- Efficient GPU parallelization
 
-<!-- * So far the architechture of the network is a Multilayer Perceptron -->
+- Much faster fitting than MCMC
 
-<!-- * Next step is to use a Convolutional Neural Network with this Loss Function -->
+]
 
-<!-- * Potential to use satellite images as input -->
+.center[
 
-<!-- * This will tell us which features of the landscape are enhancing survival and recruitment -->
+<br><br>
 
-<!-- * Could give real insights on landscape management and provide guidelines for conservation strategies -->
+### Faster and more flexible inference of latent ecological processes
 
-<!-- * Use this framework on large spatio-temporal data -->
+]
 
-<!-- --- -->
+---
 
-<!-- # Limitations -->
 
-<!-- * In real life, parametric assumptions are rarely met: the field sampling won't often sample from Poisson and Binomial distribution -->
+# Limits and next steps
 
-<!-- * Especially true for Recruitment ($\gamma$) and Survival ($\phi$), where the input data doesn't contain clear information (unlike abundance $N$) -->
 
-<!-- * Tends to overestimate survival rate over recruitment -->
+.pull-left[
 
-<!-- * Marginalization over $K$: if too small, biased likelihood, if too big, slow computation/memory heavy -->
+### Current limits
 
-<!-- --- -->
+- Memory cost increases with $N_{max}$
 
-<!-- # Summary -->
+- GPU acceleration is important
 
-<!-- * **Neural Dynamic N-mixture model** -->
-<!--   * Merges hierarchical ecological modeling with deep learning flexibility -->
-<!--   * Enables fast, parallelizable inference on GPUs -->
+- Requires tuning:
+  - learning rate
+  - batch size
+  - regularization
 
-<!-- * **Interpretability retained** -->
-<!--   * Demographic parameters (survival, recruitment, detection, abundance) are explicitly inferred from count data -->
+]
 
-<!-- * **Performance advantage** -->
-<!--   * Scales better than classical Bayesian MCMC approaches -->
-<!--   * Recovers demographic parameters reliably -->
+.pull-right[
 
-<!-- * **Future potential** -->
-<!--   * Extends demographic rate estimation from count data to applications with computer vision -->
+### Next steps
 
-<!-- --- -->
+- Sparse / banded transition matrices
 
-<!-- # &emsp;&emsp;&emsp;&emsp;Acknowledgements -->
+- Large-count approximations
 
-<!-- .center[ -->
+- Extensions of the Dail–Madsen model
 
-<!-- ```{r, out.width="92%"} -->
-<!-- knitr::include_graphics("images/acknowledgment.png") -->
-<!-- ``` -->
+- Integration of high-dimensional data  
+  e.g. remote sensing
 
-<!-- ] -->
+]
+
+.center[
+
+<br>
+
+### Main bottleneck: scaling to large-count systems
+
+]
+
+---
+
+# &emsp;&emsp;&emsp;&emsp;Acknowledgements
+
+.center[
+
+```{r, out.width="92%"}
+knitr::include_graphics("images/acknowledgment.png")
+```
+
+]

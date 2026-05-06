@@ -27,7 +27,7 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      inkscape:zoom="0.61201602"
-     inkscape:cx="573.5144"
+     inkscape:cx="834.94547"
      inkscape:cy="258.98015"
      inkscape:window-width="1920"
      inkscape:window-height="1009"
@@ -499,7 +499,10 @@
        inkscape:label=""
        transform="rotate(-90,107.79253,-43.181108)"
        id="g3420-1"
-       style="stroke-width:1.01042">
+       style="stroke-width:1.01042"
+       inkscape:export-filename="Fig4.jpg"
+       inkscape:export-xdpi="300"
+       inkscape:export-ydpi="300">
       <g
          fill="#000000"
          fill-opacity="1"
