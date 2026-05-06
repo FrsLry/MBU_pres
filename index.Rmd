@@ -278,158 +278,318 @@ $\Rightarrow$ Scaling emerges from population processes
 
 ---
 
-<!-- <div class="center" style="margin:0;"> -->
-<!--   <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;"> -->
-<!--     Demographic rates -->
-<!--   </h2> -->
-<!-- </div> -->
+# The Great Acceleration
 
-<!-- .pull-left[ -->
+* Homo sapiens, like every other species, has an impact on its environment
 
-<!-- * Changes in abundance are valuable, but demographic mechanisms offer deeper ecological insights -->
+* Since the 50's: not only linear increase but **acceleration** of human activities
 
-<!-- * Species' extinctions event are the result of increasing difference between recruitment and loss -->
+.pull-left[
 
-<!-- * Changes in demographic rates can be early warnings of species extinction  -->
+```{r, out.width="100%"}
+knitr::include_graphics("images/steffen-et-al-2015-the-trajectory-of-the-anthropocene-the-great-acceleration_Page_04.jpg")
+```
 
-<!-- * Monitoring survival and recruitment can help tailoring efficient conservation policies -->
+]
 
-<!-- ] -->
+.pull-right[
 
-<!-- .pull-right[ -->
+```{r, out.width="100%"}
+knitr::include_graphics("images/steffen-et-al-2015-the-trajectory-of-the-anthropocene-the-great-acceleration_Page_07.jpg")
+```
 
-<!-- <br><br> -->
+]
 
-<!-- ```{r} -->
-<!-- knitr::include_graphics("images/slide1.png") -->
-<!-- ``` -->
+.footnote[*Steffen et al., 2015*]
 
+---
 
-<!-- ] -->
+# The Great Acceleration
+* Homo sapiens, like all species, modifies its environment
 
+* Since the 1950s, human activities have not only increased, but **accelerated**
 
-<!-- --- -->
+<br>
 
-<!-- # Beyond abundance change -->
+* Consequences for biodiversity?
 
-<!-- <div class="center" style="margin:0;"> -->
-<!--   <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;"> -->
-<!--     Problem -->
-<!--   </h2> -->
-<!-- </div> -->
+.center[
 
-<!-- .pull-left[ -->
+$\Rightarrow$ Acceleration in species extinction rate
 
+$\Rightarrow$ Decline in wildlife populations
 
-<!-- * Data for demographic rates models are per individual (i.e. *individual encounter history data*) -->
+<br><br>
 
-<!-- * They are costly in resources and time -->
+### Are population declines accelerating?
 
-<!-- * Individual identification is not equal for all taxa -->
+]
 
-<!-- * Can be invasive/traumatic -->
+---
 
-<!-- * Limited spatial and temporal extent -->
+# Bird decline in North America
 
-<!-- ] -->
+* 3 **billion** bird decline since the 70's 
 
-<!-- .pull-right[ -->
+* Rosenberg et al. (2019): 1 bird out of 4 (25%)
 
-<!-- <div style="margin-right:-3.5em"> -->
+.center[
 
-<!-- ```{r, out.width="100%"} -->
-<!-- knitr::include_graphics("images/slide2.png") -->
-<!-- ``` -->
+<br>
 
-<!-- ] -->
+```{r, out.width="100%"}
+knitr::include_graphics("images/366_120_f1.jpeg")
+```
 
-<!-- --- -->
+]
 
-<!-- # Beyond abundance change -->
+---
 
-<!-- <div class="center" style="margin:0;"> -->
-<!--   <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;"> -->
-<!--     Using abundance to infer demographic rates -->
-<!--   </h2> -->
-<!-- </div> -->
+# Bird decline in North America
 
-<!-- .pull-left[ -->
+* 3 **billion** bird decline since the 70's 
 
-<!-- * However, abundance data are available at large spatial and temporal scale -->
+* Leroy et al. (2026): 1 bird out of 6 (15%)
 
-<!-- * The idea of inferring birth/immigration ($\mu$) and death/emigration ($\lambda$) from experimental data is not new -->
+.center[
 
-<!-- * While overall change in abundance gives information about $\lambda-\mu$, the volatility of the time-series provide information about $\lambda+\mu$ making $\lambda$ and $\mu$ identifiable -->
+<br>
 
-<!-- ] -->
+```{r, out.width="100%"}
+knitr::include_graphics("images/Fig2AB.JPG")
+```
 
-<!-- .pull-right[ -->
+]
 
-<!-- <br> -->
+---
 
-<!-- <img src="images/slide3.png" class="bigimg" /> -->
+# Patterns of acceleration
 
+* 3 hotspots of accelerating decline: Midwest, California, and Mid Atlantic region
 
-<!-- ] -->
+.center[
 
-<!-- .footnote[Wilkinson, 2011] -->
+<br>
 
-<!-- --- -->
+```{r, out.width="100%"}
+knitr::include_graphics("images/Fig2CD.JPG")
+```
 
-<!-- # Dynamic N-mixture model -->
+]
 
-<!-- <div class="center" style="margin:0;"> -->
-<!--   <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;"> -->
-<!--     Hidden Markov Model -->
-<!--   </h2> -->
-<!-- </div> -->
+---
 
-<!-- **Observation process** -->
+# Drivers of accelerating decline
 
-<!-- .pull-left[ -->
+* Variable importance and partial dependence plots of best performing ML algorithm (RF, BRT, XGBoost) 
 
-<!-- $$y_{i,j,t} \sim Binomial(N_{i,t}, p)$$ -->
+.center[
 
-<!-- ] -->
+```{r, out.width="80%"}
+knitr::include_graphics("images/Fig3.jpg")
+```
 
-<!-- .pull-right[ -->
+]
 
-<!-- $y =$ observed abundance<br> -->
-<!-- $N_{it} =$ latent "true" abundance<br> -->
-<!-- $p =$ detection probability -->
+---
 
-<!-- ] -->
+# Taxonomic analysis
 
-<!-- .footnote[Dail & Madsen, 2011] -->
+* Decomposition into $\Delta N$ and $\Delta g$
 
-<!-- -- -->
+.center[
 
-<!-- **State process** -->
+```{r, out.width="75%"}
+knitr::include_graphics("images/Fig1.jpg")
+```
 
-<!-- .pull-left[ -->
+]
 
-<!-- $$N_{i,1} \sim Poisson(\lambda)$$ -->
-<!-- <br> -->
+---
 
-<!-- $$S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\ -->
-<!-- R_{i,t+1} \sim Poisson(\gamma_{i,t})\\ -->
-<!-- N_{i,t+1} = S_{i,t+1} + R_{i,t+1}$$ -->
+# Taxonomic analysis
 
-<!-- ] -->
+* 47% species and 39% families with significant decline
 
-<!-- .pull-right[ -->
+* Among declining taxa: twice more accelerating than decelerating
 
-<!-- $\lambda =$ abundance at $t = 1$ -->
+<br>
 
-<!-- <br> -->
+.center[
 
-<!-- $\phi =$ survival probability<br> -->
-<!-- $\gamma =$ number of recruits -->
-<!-- ] -->
+```{r}
+knitr::include_graphics("images/Fig4.jpg")
+```
 
-<!-- .footnote[Dail & Madsen, 2011] -->
 
-<!-- --- -->
+]
+
+---
+
+# Media coverage
+
+.pull-left[
+
+<br><br><br>
+
+* The New York Times (front page)
+* The Washington Post
+* Associated Press
+* Le Monde
+* NPR
+* Radio-Canada
+...
+
+]
+
+.pull-right[
+
+```{r, out.width="90%"}
+knitr::include_graphics("images/NYT.jpg")
+```
+
+
+]
+
+---
+
+# Decomposing abundance change
+
+* To better understand decline in wildlife population, we can decompose $\Delta N$ into underlying demographic processes: survival $S$, recruitment $R$, and loss $L$
+
+.center[
+
+```{r, out.width="80%"}
+knitr::include_graphics("images/Fig1_neural.jpg")
+```
+
+
+]
+
+---
+
+# Decomposing abundance change
+
+<div class="center" style="margin:0;">
+  <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;">
+    Problem
+  </h2>
+</div>
+
+.pull-left[
+
+
+* Data for demographic rates models are per individual (i.e. *individual encounter history data*)
+
+* They are costly in resources and time
+
+* Individual identification is not equal for all taxa
+
+* Can be invasive/traumatic
+
+* Limited spatial and temporal extent
+
+]
+
+.pull-right[
+
+<div style="margin-right:-3.5em">
+
+```{r, out.width="100%"}
+knitr::include_graphics("images/slide2.png")
+```
+
+]
+
+---
+
+# Beyond abundance change
+
+<div class="center" style="margin:0;">
+  <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;">
+    Using abundance to infer demographic rates
+  </h2>
+</div>
+
+.pull-left[
+
+* However, abundance data are available at large spatial and temporal scale
+
+* The idea of inferring birth/immigration ($\mu$) and death/emigration ($\lambda$) from experimental data is not new
+
+* While overall change in abundance gives information about $\lambda-\mu$, the volatility of the time-series provide information about $\lambda+\mu$ making $\lambda$ and $\mu$ identifiable
+
+]
+
+.pull-right[
+
+<br>
+
+<img src="images/slide3.png" class="bigimg" />
+
+
+]
+
+.footnote[Wilkinson, 2011]
+
+---
+
+# Dynamic N-mixture model
+
+<div class="center" style="margin:0;">
+  <h2 style="margin:0 0 0em; line-height:1.05; display:inline-block;">
+    Hidden Markov Model
+  </h2>
+</div>
+
+**Observation process**
+
+.pull-left[
+
+$$y_{i,j,t} \sim Binomial(N_{i,t}, p)$$
+
+]
+
+.pull-right[
+
+$y =$ observed abundance<br>
+$N_{it} =$ latent "true" abundance<br>
+$p =$ detection probability
+
+]
+
+.footnote[Dail & Madsen, 2011]
+
+--
+
+**State process**
+
+.pull-left[
+
+$$S_{i,t+1} \sim Binomial(N_{i,t}, \phi_{i,t})\\
+R_{i,t+1} \sim Poisson(\gamma_{i,t})\\
+N_{i,t+1} = S_{i,t+1} + R_{i,t+1}$$
+
+<br>
+
+$$N_{i,1} \sim Poisson(\lambda)$$
+
+]
+
+.pull-right[
+
+$\phi =$ survival probability<br>
+$\gamma =$ number of recruits
+
+<br>
+
+$\lambda =$ abundance at $t = 1$
+
+]
+
+.footnote[Dail & Madsen, 2011]
+
+---
 
 <!-- # Limitations of Existing Frameworks -->
 
@@ -889,4 +1049,3 @@ $\Rightarrow$ Scaling emerges from population processes
 <!-- ``` -->
 
 <!-- ] -->
-
