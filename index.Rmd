@@ -995,6 +995,21 @@ knitr::include_graphics("images/Fig3_neural_NSR.JPG")
 
 ---
 
+# Computer vision
+
+* Fit the same simulated data with a Convolutional Neural Network
+
+.center[
+
+```{r, out.width="80%"}
+knitr::include_graphics("images/CNN_param.png")
+```
+
+
+]
+
+---
+
 # Case study
 
 * The Swiss Green Woodpecker 
