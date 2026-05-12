@@ -25,7 +25,7 @@ knitr::opts_chunk$set(message = F,
                       echo = F)
 ```
 
-# Who am I?
+# François Leroy
 
 * Postdoctoral researcher at The Ohio State University <img src="images/ohio_su_logo.jpg" style="height:2.5em; vertical-align:middle; margin-left:0.35em;" />
 
