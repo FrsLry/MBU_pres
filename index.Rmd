@@ -190,11 +190,13 @@ knitr::include_graphics("images/eco_evo.png")
 
 * Simulation analyses with different processes driving the scaling of extinction: density dependent mortality and drivers of Species-Area Relationship (SAR)
 
-* 3 hypothesis
+* 2 hypothesis
 
 ---
 
 # What controls the scaling of extinction?
+
+* Allee effect 
 
 ```{r}
 knitr::include_graphics("images/hypo1.png")
@@ -203,6 +205,8 @@ knitr::include_graphics("images/hypo1.png")
 ---
 
 # What controls the scaling of extinction?
+
+* Janzen–Connell effect
 
 ```{r}
 knitr::include_graphics("images/hypo2.png")
@@ -307,7 +311,7 @@ knitr::include_graphics("images/steffen-et-al-2015-the-trajectory-of-the-anthrop
 # The Great Acceleration
 * Homo sapiens, like all species, modifies its environment
 
-* Since the 1950s, human activities have not only increased, but **accelerated**
+* Since the 50's: not only linear increase but **acceleration** of human activities
 
 <br>
 
@@ -438,6 +442,7 @@ knitr::include_graphics("images/Fig4.jpg")
 * Le Monde
 * NPR
 * Radio-Canada
+* ČT24
 ...
 
 ]
